@@ -99,7 +99,6 @@ function removeProduct(e){
 		if ( parseInt(products[i].id) === parseInt(e.target.dataset.id) ) {
 			products.splice(i, 1);
 			subtotal -= parseInt( e.target.dataset.quantity ) * parseInt( e.target.dataset.price );
-			console.log(subtotal);
 			break;
 		}
 	}
@@ -173,7 +172,6 @@ function updateCart(products, shipping, discount) {
 function updateCartQuantity(){
 	let eQuantity = document.querySelectorAll('.eQuantity');
 	for (let j = 0; j < eQuantity.length; j++) {
-		console.log(eQuantity[j]);
 		for (let i in products) {
 			if ( parseInt(products[i].id) === parseInt(eQuantity[j].dataset.id) ) {
 				products[i].quantity = parseInt(eQuantity[j].value);
@@ -212,7 +210,6 @@ couponForm.addEventListener('submit', function(e){
 			discount.status = true;
 			discount.code = COUPONES[i].code;
 			discount.percent = parseInt( COUPONES[i].percent );
-			console.log(discount);
 			updateCookies(products, shipping, discount);
 			break;
 		}
