@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ECart</title>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			table{
+				width: 100%;
+				border-collapse: collapse;
+				text-align: left;
+			}
+			th, td{
+				padding: 10px 15px;
+				border: 1px solid rgba(0,0,0, .5);
+			}
+			th{
+				background: #999;
+			}
+			img{
+				width: 100px;
+			}
+			input{
+				width: 100%;
+			}
+
+			.container{
+				max-width: 768px;
+				margin:30px auto;
+			}
+
+			.express-shipping input{
+				width: auto;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- Add to cart buttons -->
+		<div class="container">
+			<button class="addProduct" data-id="1" data-image="./product.png" data-name="Product 1" data-quantity="1" data-price="100">Add product 1 $100</button>
+			<button class="addProduct" data-id="2" data-image="./product.png" data-name="Product 2" data-quantity="1" data-price="150">Add product 2 $150</button>
+			<button class="addProduct" data-id="3" data-image="./product.png" data-name="Product 3" data-quantity="1" data-price="200">Add product 3 $200</button>
+			<button class="addProduct" data-id="4" data-image="./product.png" data-name="Product 4" data-quantity="1" data-price="250">Add product 4 $250</button>
+		</div>
+
+		<div class="coupon container">
+			<label for="coupon">Have a coupon code? <span id="openCouponCode">Click here and use it</span>.</label>
+			<form id="couponForm" class="row hide">
+				<div class="col-12 col-sm-7 col-md-8">
+					<input type="text" name="coupon_code" id="coupon_code" placeholder="Enter your discount code">
+				</div>
+				<div class="col-12 col-sm-5 col-md-4">
+					<button class="btn btn--apply"><span>apply</span></button>
+				</div>
+			</form>
+		</div>
+
+		<div class="express-shipping container" id="expressShippingBlock">
+			<input type="checkbox" name="express_shipping" id="express_shipping" data-id="1000" data-name="Express Shipping" data-price="9" data-quantity="1" data-image="http://mg-wordpress.local/wp-content/uploads/2019/09/product-150x150.jpg">
+			<label for="express_shipping">Add express shipping. Only $9</label>
+		</div>
+
+		<!-- Checkout blockwithout form -->
+		<div id="eCheckout" class="checkout container" style="display: none;">
+
+			<!-- Cart table -->
+			<table class="ecart-products" id="eCart">
+				<thead>
+					<tr>
+						<th width="20px"></th>
+						<th width="100px">image</th>
+						<th width="">name</th>
+						<th width="25px">quantity</th>
+						<th width="35px">price</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5">
+							<button id="eUpdate">update cart</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">Discount</td>
+						<td><span id="eDiscount">0</span></td>
+					</tr>
+					<tr>
+						<td colspan="4">Subtotal</td>
+						<td><span id="eSubtotal">0</span></td>
+					</tr>
+					<tr>
+						<td colspan="4">Shipping</td>
+						<td><span id="eShipping">0</span></td>
+					</tr>
+					<tr>
+						<td colspan="4">Total</td>
+						<td><span id="eTotal">0</span></td>
+					</tr>
+				</tfoot>
+			</table>
+
+		</div>
+
+		<script src="ECart.js"></script>
+	</body>
+</html>
